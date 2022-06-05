@@ -28,6 +28,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import MainPage from './MainPage';
+import ReviewPaper from './ReviewPaper';
 
 function createData(q_name, creation_date, created_by) {
   return { q_name, creation_date, created_by };
@@ -65,77 +67,6 @@ function App() {
       
         
         {/* 1st page to McQ */}
-         <Box height='10vh' className='Navbar' 
-        style={{
-          backgroundColor:'#354259',
-          border:'1px dashed border'
-        
-        }}
-        >
-            <Stack direction='row'  style={{
-              paddingInline:'20px',
-              alignItems:'center',
-              justifyContent:'space-around'
-               }}>
-                 <div style={{
-              paddingLeft:'10px',
-              paddingRight:'10px',
-               }} ><Typography variant='h6' color='#FFF2F2'>Home</Typography>
-</div>
-                <div style={{
-              paddingLeft:'10px',
-              paddingRight:'10px'
-               }}><Typography variant='h6' color='#FFF2F2' >About</Typography></div>
-               <div style={{
-              paddingLeft:'10px',
-              paddingRight:'10px'
-               }}><Typography variant='h6' color='#FFF2F2' >Contact</Typography></div>
-          <div 
-
-          style = {{
-  }}><Button
-  variant='outlined'
-  color='error'
-  id="demo-positioned-button"
-  aria-controls={open ? 'demo-positioned-menu' : undefined}
-  aria-haspopup="true"
-  aria-expanded={open ? 'true' : undefined}
-  onClick={handleClick}
->
-  <Avatar sx={{ bgcolor: deepOrange[500] }} >N</Avatar>
-</Button></div>
- 
- <Menu
-        id="basic-menu"
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        MenuListProps={{
-          'aria-labelledby': 'basic-button',
-        }}
-      >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
-      </Menu>
-                </Stack>
-        </Box> 
-        
-        <div><Typography  variant = 'h4'>Hello Review</Typography></div>
-        
-        {/* <Mainbody /> */}
-        
-    
-    </div>
-    <div className="tablet">
-  
-      
-
-      {/* Connect page */}
-      {/* 1st page to Create a New q_paper */}
-      
-        
-        {/* 1st page to McQ */}
-        
         <Box height='10vh' className='Navbar' 
         style={{
           backgroundColor:'#354259',
@@ -145,7 +76,7 @@ function App() {
         >
             <Stack direction='row'  style={{
               paddingInline:'20px',
-              paddingTop:'2.8vh',
+              paddingTop:'2.2vh',
               alignItems:'center',
               justifyContent:'space-around'
                }}>
@@ -220,7 +151,144 @@ function App() {
         <div style={{
           marginTop:'2vh'
         }} >
-           <Button variant='contained' color='success'  > <Link to='' style={{
+           <Button variant='contained' color='success'  > <Link to='/review_paper' style={{
+             textDecoration:'none',
+             color:'#fff'
+           }} ><Typography  variant='subtitle2' color='success' >Review Questions</Typography></Link></Button>
+        </div>
+        </Stack>
+        <div  style={{
+          marginTop:'3vh',
+          alignItems:'center',
+          justifyContent:'center'
+        }}>
+         <TableContainer component={Paper}>
+      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>Question Name</TableCell>
+            <TableCell align="right">Date Of Creation</TableCell>
+            <TableCell align="right">Created By</TableCell>
+            
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {rows.map((row) => (
+            <TableRow
+              key={row.q_name}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
+              <TableCell component="th" scope="row">
+                {row.q_name}
+              </TableCell>
+              <TableCell align="right">{row.creation_date}</TableCell>
+              <TableCell align="right">{row.created_by}</TableCell>
+              </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+        </div>
+        </div>
+            
+        
+    
+    </div>
+    <div className="tablet">
+  
+      
+
+      {/* Connect page */}
+      {/* 1st page to Create a New q_paper */}
+      
+        
+        {/* 1st page to McQ */}
+        
+        <Box height='10vh' className='Navbar' 
+        style={{
+          backgroundColor:'#354259',
+          border:'1px dashed border'
+        
+        }}
+        >
+            <Stack direction='row'  style={{
+              paddingInline:'20px',
+              paddingTop:'2.2vh',
+              alignItems:'center',
+              justifyContent:'space-around'
+               }}>
+                 <div style={{
+              paddingLeft:'10px',
+              
+              paddingRight:'5px',
+               }} ><Link><Typography variant='h6' color='#FFF2F2' >Home</Typography></Link>
+</div>
+                <div style={{
+              paddingLeft:'10px',
+              paddingRight:'15px'
+               }}><Link><Typography variant='h6' color='#FFF2F2' >About</Typography></Link></div>
+               <div style={{
+              paddingLeft:'10px',
+              paddingRight:'10px'
+               }}><Link><Typography variant='h6' color='#FFF2F2' >Contact</Typography></Link></div>
+          <div style = {{
+  }}><Button variant='outlined'
+  color='error'
+  id="demo-positioned-button"
+  aria-controls={open ? 'demo-positioned-menu' : undefined}
+  aria-haspopup="true"
+  aria-expanded={open ? 'true' : undefined}
+  onClick={handleClick}
+>
+  <Avatar sx={{ bgcolor: deepOrange[500] }}>N</Avatar>
+</Button></div>
+ 
+ <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          'aria-labelledby': 'basic-button',
+        }}
+      >
+        <MenuItem onClick={handleClose}>Profile</MenuItem>
+        <MenuItem onClick={handleClose}>Logout</MenuItem>
+      </Menu>
+ 
+          
+                </Stack>
+        </Box> 
+        
+        <div style={{
+          backgroundColor:'#F2EBE9',
+          padding:'5vh',
+          height:'100vh'
+        }}>
+        <div   ><Typography  variant = 'h4' style={{
+          color:'#3C2C3E'
+        }} >Welcome To Review Dashboard</Typography></div>
+        <div style={{
+          marginTop:'9vh'
+        }}><Button variant='outlined'><Typography  variant='subtitle1' style={{
+          color:'#413F42'
+        }} >View All Question Paper</Typography></Button></div>
+        <Stack direction='row'  
+        style={{
+          alignItems:'start',
+          marginTop:'3vh',
+          justifyContent:'space-evenly'
+        }}
+        >
+        <div style={{
+          marginTop:'2vh'
+        }} >
+            <Typography  variant='subtitle1'>Recent Question Papers</Typography>
+        </div>
+        <div style={{
+          marginTop:'2vh'
+        }} >
+           <Button variant='contained' color='success'  > <Link to='/review_paper' style={{
              textDecoration:'none',
              color:'#fff'
            }} ><Typography  variant='subtitle2' color='success' >Review Questions</Typography></Link></Button>
@@ -264,62 +332,9 @@ function App() {
         
     
         </div>
-    <div className="mobile"  >
-  
-    <Box height='10vh' className='Nav' 
-        style={{
-          backgroundColor:'#354259',
-          border:'1px dashed border',
-          width:'100%',
-          paddingTop:'2.5vh'
-        }}
-        >
-            <Stack direction='row'  style={{
-              justifyContent:'start',
-              paddingInline:'20px',
-               }}>
-                 <IconButton color="primary" aria-label="upload picture" component="span">
-    <DensityMediumIcon ></DensityMediumIcon>
-    <div style={{
-      marginLeft:'10px',
-      marginRight:'10px'
-    }}><Typography variant='h5' style = {{
-      color:'#FFF2F2'
-      
-    }} >Reviews</Typography></div>
-  </IconButton>
-  <Stack direction='row'
-  style={{
-    display:'flex',
-    alignItems:'end',
-    justifyContent:'end'
-  }}
-  >
-  <div style = {{
-  }}><Avatar sx={{ bgcolor: deepOrange[500] }}>N</Avatar></div>
- 
-  </Stack>
-          
-                </Stack>
-        </Box>
-
-    <div style={{
-      height:'100vh',
-
-    }}>
-      <div  style={{
-        paddingLeft:'2vh'
-      }}>
-
-      </div>
-      <div>
-       <Typography>Welcome To Review Dashboard</Typography>
-      </div>
-      </div>  
-    
-    </div>
+    <MainPage></MainPage>
     </Route>
-        
+       <Route  path='/review_paper' > <ReviewPaper/></Route> 
 
       </Switch>
       </BrowserRouter>
